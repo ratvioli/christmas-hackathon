@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Style for the button */
+    button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 20px;
+      border: none;
+      outline: none;
+      background-color: #00b8d4;
+      color: white;
+      padding: 15px 32px;
+    }
+    button:hover {
+      background-color: #0052cc;
+    }
+
+    button:active {
+      transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    .video-container video {
+	min-width: 100%;
+	min-height: 100%;
+    position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	object-fit: cover;
+}
+
+
+  </style>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="christmas.mp3" type="audio/mpeg">
+      </audio>
+
+
+    <div class="video-container">
+        <div class="color-overlay"></div>
+        <video autoplay loop muted>
+            <source src="fire.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+  <button id="waitButton" onclick="redirect()">Can You Click Me?</button>
+">
+
+  <script>
+    var waitTime = 10;
+
+    setInterval(updateButton, 1000);
+    function updateButton() {
+      waitTime--;
+
+      // If the wait time has reached zero, update the button text and stop the timer
+      if (waitTime <= 0) {
+        document.getElementById('waitButton').innerHTML = 'Press Me!';
+        clearInterval(timer);
+      }
+      else {
+        document.getElementById('waitButton').innerHTML = 'Please wait ' + waitTime + ' seconds';
+        var color = 'rgb(' + (waitTime / 10 * 255) + ', 0, 0)';
+        document.getElementById('waitButton').style.backgroundColor = color;
+      }
+    }
+
+
+    function redirect() {
+
+      if (waitTime <= 0) {
+        window.location.href = 'https://www.websitex.com';
+      }
+
+      else {
+        window.location.href = 'https://youtu.be/dQw4w9WgXcQ';
+      }
+    }
+
+  </script>
+</body>
+</html>
